@@ -1,0 +1,42 @@
+.archive {
+
+	&__result {
+		margin: $shoulder auto;
+	}
+
+	&__number {
+		font-weight: 900;
+		float: left;
+		margin-right: 1rem;
+
+		@mixin atSmall {
+	    	margin-left: -2.3rem;
+		}
+	}
+
+	&__sort {
+		margin-bottom: 0;
+	}
+
+	&__order-link {
+		text-transform: uppercase;
+		font-weight: 900;
+
+		& i {
+
+		}
+
+		& a {
+			color: $purple;
+		}
+	}
+
+	&__filter {
+	    float: left;
+	    position: absolute;
+	    margin-left: -2.5rem;
+	    margin-top: .4rem;
+	    color: #2E2232;
+	}
+
+}

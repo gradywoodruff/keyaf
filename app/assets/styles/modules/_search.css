@@ -1,0 +1,43 @@
+.search {
+
+	&__button {
+		float: left;
+		position: absolute;
+		margin-left: -2.5rem;
+		margin-top: .4rem;
+		color: $purple;
+
+
+		& input {
+			background-color: transparent;
+			border: none;
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	&__form {
+		display: inline;
+
+		& input {
+			font-family: g;
+			font-weight: 900;
+			color: $purple;
+			text-transform: uppercase;
+			outline: none;
+			border: none;
+		    width: 100%;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	
+	}
+}
