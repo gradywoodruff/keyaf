@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10301,109 +10301,6 @@ return jQuery;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var portfolioPostsBtn = document.getElementById("portfolio-posts-btn");
-var portfolioPostsContainer = document.getElementById("portfolio-posts-container");
-
-if (portfolioPostsBtn) {
-  portfolioPostsBtn.addEventListener("click", function () {
-    var ourRequest = new XMLHttpRequest();
-    ourRequest.open('GET', 'http://localhost:8888/keyaf/wp-json/wp/v2/posts');
-    ourRequest.onload = function () {
-      if (ourRequest.status >= 200 && ourRequest.status < 400) {
-        var data = JSON.parse(ourRequest.responseText);
-        createHTML(data);
-        portfolioPostsBtn.remove();
-      } else {
-        console.log("We connected to the server, but it returned an error.");
-      }
-    };
-
-    ourRequest.onerror = function () {
-      console.log("Connection error");
-    };
-
-    ourRequest.send();
-  });
-}
-
-function createHTML(postsData) {
-  var ourHTMLString = '';
-  for (i = 0; i < postsData.length; i++) {
-    ourHTMLString += '<h2>' + postsData[i].title.rendered + '</h2>';
-    ourHTMLString += postsData[i].content.rendered;
-  }
-  portfolioPostsContainer.innerHTML = ourHTMLString;
-}
-
-exports.default = Api;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var MobileMenu = function () {
-	function MobileMenu() {
-		_classCallCheck(this, MobileMenu);
-
-		this.siteHeader = (0, _jquery2.default)(".site-header");
-		this.menuIcon = (0, _jquery2.default)(".site-header__menu-icon");
-		this.menuContent = (0, _jquery2.default)(".site-header__menu-content");
-		this.events();
-	}
-
-	_createClass(MobileMenu, [{
-		key: "events",
-		value: function events() {
-			this.menuIcon.click(this.toggleTheMenu.bind(this));
-		}
-	}, {
-		key: "toggleTheMenu",
-		value: function toggleTheMenu() {
-			this.menuContent.toggleClass("site-header__menu-content--is-visible");
-			this.siteHeader.toggleClass("site-header--is-expanded");
-			this.menuIcon.toggleClass("site-header__menu-icon--close-x");
-		}
-	}]);
-
-	return MobileMenu;
-}();
-
-exports.default = MobileMenu;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
@@ -10449,12 +10346,14 @@ var Modal = function () {
 	}, {
 		key: "openModal",
 		value: function openModal() {
+			(0, _jquery2.default)("body").addClass("full-screen");
 			this.modal.addClass("modal--is-visible");
 			return false;
 		}
 	}, {
 		key: "closeModal",
 		value: function closeModal() {
+			(0, _jquery2.default)("body").removeClass("full-screen");
 			this.modal.removeClass("modal--is-visible");
 		}
 	}]);
@@ -10465,33 +10364,98 @@ var Modal = function () {
 exports.default = Modal;
 
 /***/ }),
-/* 4 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _MobileMenu = __webpack_require__(2);
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 
-var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _Modal = __webpack_require__(3);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Nav = function () {
+	function Nav() {
+		_classCallCheck(this, Nav);
+
+		this.openNavButton = (0, _jquery2.default)(".nav-button");
+		this.nav = (0, _jquery2.default)(".nav");
+		this.closeNavButton = (0, _jquery2.default)(".nav__close");
+		this.events();
+	}
+
+	_createClass(Nav, [{
+		key: "events",
+		value: function events() {
+			// clicking the open nav button
+			this.openNavButton.click(this.openNav.bind(this));
+
+			// clicking the x close nav button
+			this.closeNavButton.click(this.closeNav.bind(this));
+
+			// pushes any key
+			(0, _jquery2.default)(document).keyup(this.keyPressHandler.bind(this));
+		}
+	}, {
+		key: "keyPressHandler",
+		value: function keyPressHandler(e) {
+			if (e.keyCode == 27) {
+				this.closeNav();
+			}
+		}
+	}, {
+		key: "openNav",
+		value: function openNav() {
+			(0, _jquery2.default)("body").addClass("full-screen");
+			this.nav.addClass("nav--is-open");
+			return false;
+		}
+	}, {
+		key: "closeNav",
+		value: function closeNav() {
+			(0, _jquery2.default)("body").removeClass("full-screen");
+			this.nav.removeClass("nav--is-open");
+		}
+	}]);
+
+	return Nav;
+}();
+
+exports.default = Nav;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Nav = __webpack_require__(2);
+
+var _Nav2 = _interopRequireDefault(_Nav);
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _Modal = __webpack_require__(1);
 
 var _Modal2 = _interopRequireDefault(_Modal);
 
-var _Api = __webpack_require__(1);
-
-var _Api2 = _interopRequireDefault(_Api);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mobileMenu = new _MobileMenu2.default();
+var nav = new _Nav2.default();
 var modal = new _Modal2.default();
-var api = new _Api2.default();
 
 /***/ })
 /******/ ]);

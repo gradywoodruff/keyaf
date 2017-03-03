@@ -1,6 +1,7 @@
 html {
 	font-family: g;
 	font-weight: 300;
+	height: 100%;
 	background-color: $purple;
 }
 
@@ -9,6 +10,17 @@ body {
 	margin: 0 $shoulder;
 	color: $purple;
 	line-height:1.5;
+	position: relative;
+	min-height: 100%;
+
+	&.full-screen {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		overflow: hidden;
+	}
 
 	@mixin atMedium {
 		

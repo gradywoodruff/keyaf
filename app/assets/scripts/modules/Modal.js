@@ -26,11 +26,13 @@ class Modal {
 	}
 
 	openModal() {
+		$("body").addClass("full-screen");
 		this.modal.addClass("modal--is-visible");
 		return false;
 	}
 
 	closeModal() {
+		$("body").removeClass("full-screen");
 		this.modal.removeClass("modal--is-visible");
 	}
 }

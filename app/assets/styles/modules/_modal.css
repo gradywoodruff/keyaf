@@ -1,0 +1,45 @@
+.modal {
+	position: fixed;
+	top: 0;
+	left: $shoulder;
+	right: $shoulder;
+	bottom: 0;
+	background-color: $purple;
+	z-index: 10;
+	color: $white;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease-out;
+
+	&--is-visible {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&__close {
+		position: absolute;
+		color: $white;
+		font-weight: 900;
+		text-transform: uppercase;
+		right: 1rem;
+		top: .6rem;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+.question i {
+	position: absolute;
+	color: $purple;
+	font-weight: 900;
+	text-transform: uppercase;
+	right: 1rem;
+	top: .6rem;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+}

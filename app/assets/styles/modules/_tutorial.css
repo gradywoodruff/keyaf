@@ -51,22 +51,6 @@
 		@mixin atLarge {
 			width: 29rem;
 		}
-
-		&_title {
-
-		}
-
-		&_producer {
-			
-		}
-
-		&_subject {
-			
-		}
-
-		&_download {
-			
-		}
 		
 	}
 

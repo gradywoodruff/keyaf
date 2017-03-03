@@ -6,7 +6,6 @@ function keyaf_resources() {
 	wp_enqueue_style( 'styles', get_template_directory_uri() . '/app/temp/styles/styles.css');
 	wp_enqueue_style( 'ss-social-regular', get_template_directory_uri() . '/app/assets/webfont/ss-social-regular.css');
 	wp_enqueue_style( 'ss-standard', get_template_directory_uri() . '/app/assets/webfont/ss-standard.css');
-	wp_enqueue_script('app', get_template_directory_uri() . '/app/temp/scripts/App.js', NULL, 1.0, false);
 
     include 'shortcodes.php';
 	

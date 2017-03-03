@@ -21,10 +21,11 @@
 	&__order-link {
 		text-transform: uppercase;
 		font-weight: 900;
+	    margin-left: 2.7rem;
 
-		& i {
-
-		}
+	    @mixin atSmall {
+	    	margin-left: 0;
+	    }
 
 		& a {
 			color: $purple;

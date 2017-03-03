@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <body class="page--tutorial">
-	<a href="<?php echo home_url(); ?>"><?php get_template_part('content/_nav'); ?></a>
+	<?php get_template_part('content/_nav'); ?>
+	<?php get_template_part('content/_modal'); ?>
 
 <?php 
 if ( have_posts() ) {
@@ -24,10 +25,6 @@ if ( have_posts() ) {
 		$tags = trim ($list, $separate); 
 		$thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumb' );
 		?>
-
-		<div class="question">
-			<i class="ss-icon ss-standard">question</i>
-		</div>
 		
 		<div class="wrap wrap--top-pad">
 			<a href="<?php the_field('tutorial__link'); ?>" target="_blank">
@@ -123,5 +120,8 @@ if ( have_posts() ) {
 		</div>
 	</div>
 
+<!-- build:js assets/scripts/App.js -->
+<script src="<?php echo get_template_directory_uri() . '/app/temp/scripts/App.js' ?>"></script>
+<!-- endbuild -->
 </body>
 </html>

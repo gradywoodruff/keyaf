@@ -3,11 +3,8 @@
 <?php
 if ( is_category() ) { ?>
 <body class="page--producers">
-	<a href="<?php echo home_url(); ?>"><?php get_template_part('content/_nav'); ?></a>
-
-	<div class="question">
-		<i class="ss-icon ss-standard">question</i>
-	</div>
+	<?php get_template_part('content/_nav'); ?>
+	<?php get_template_part('content/_modal'); ?>
 
 	<div class="wrap wrap--top-pad">
 		<div class="title title--all">
@@ -19,11 +16,8 @@ if ( is_category() ) { ?>
 <?php
 } elseif ( is_tag() ) { ?>
 <body class="page--subjects page--subject-<?php single_tag_title(); ?>">
-	<a href="<?php echo home_url(); ?>"><?php get_template_part('content/_nav'); ?></a>
-
-	<div class="question">
-		<i class="ss-icon ss-standard">question</i>
-	</div>
+	<?php get_template_part('content/_nav'); ?>
+	<?php get_template_part('content/_modal'); ?>
 
 	<div class="wrap wrap--top-pad">
 		<div class="title title--all">
@@ -35,10 +29,8 @@ if ( is_category() ) { ?>
 <?php
 } else { ?>
 <body class="page--search">
-
-	<div class="question">
-		<i class="ss-icon ss-standard">question</i>
-	</div>
+	<?php get_template_part('content/_nav'); ?>
+	<?php get_template_part('content/_modal'); ?>
 
 	<div class="wrap wrap--top-pad">
 		<div class="title title--all">
@@ -50,5 +42,8 @@ if ( is_category() ) { ?>
 <?php
 } ?>
 
+<!-- build:js assets/scripts/App.js -->
+<script src="<?php echo get_template_directory_uri() . '/app/temp/scripts/App.js' ?>"></script>
+<!-- endbuild -->
 </body>
 </html>

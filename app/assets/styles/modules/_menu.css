@@ -1,13 +1,16 @@
-.menu {
+.nav {
+	position: fixed;
 	top: 0;
 	bottom: 0;
 	left: 1rem;
 	right: 1rem;
-	position: fixed;
 	z-index: 18;
+	opacity: 0;
 	visibility: hidden;
+	transition: all .3s ease-out;
 
-	&.menu--is-open {
+	&.nav--is-open {
+		opacity: 1;
 		visibility: visible;
 	}
 
@@ -71,7 +74,6 @@
 	}
 
 	& .path {
-		transition: all .3s ease-out;
 		top: 50%;
 	    position: absolute;
 	    text-align: left;
@@ -93,12 +95,6 @@
 		    font-weight: 900;
 		    text-transform: uppercase;
 		    transform: translateY(-50%);
-	    }
-	    &.path--open {
-			transition: all .3s ease-out;
-	    	top: 0;
-	    	transform: translateY(0%);
-			padding-top: $shoulder;
 	    }
 
 	}
