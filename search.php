@@ -34,8 +34,11 @@ $totalresults = $wp_query->found_posts;
 		<?php get_template_part('content/_list--search'); ?>
 	</div>
 
-<!-- build:js assets/scripts/App.js -->
+<!-- stag -->
 <script src="<?php echo get_template_directory_uri() . '/app/temp/scripts/App.js' ?>"></script>
+<!-- endstag -->
+<!-- build -->
+<script src="<?php echo get_template_directory_uri() . '/assets/scripts/App.js' ?>"></script>
 <!-- endbuild -->
 </body>
 </html>

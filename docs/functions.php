@@ -2,9 +2,6 @@
 
 function keyaf_resources() {
 	
-	//stag
-	wp_enqueue_style( 'styles', get_template_directory_uri() . '/app/temp/styles/styles.css');
-	//build
 	wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/styles/styles.css');
 	wp_enqueue_style( 'ss-social-regular', get_template_directory_uri() . '/app/assets/webfont/ss-social-regular.css');
 	wp_enqueue_style( 'ss-standard', get_template_directory_uri() . '/app/assets/webfont/ss-standard.css');

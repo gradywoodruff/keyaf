@@ -27,11 +27,6 @@ Template Name: Search Page
 
 	</div>
 
-<!-- stag -->
-<script src="<?php echo get_template_directory_uri() . '/app/temp/scripts/App.js' ?>"></script>
-<!-- endstag -->
-<!-- build -->
 <script src="<?php echo get_template_directory_uri() . '/assets/scripts/App.js' ?>"></script>
-<!-- endbuild -->
 </body>
 </html>
